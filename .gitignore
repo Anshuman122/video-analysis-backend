@@ -1,0 +1,100 @@
+# ============================
+# Python cache & artifacts
+# ============================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pkl
+*.db
+*.sqlite3
+*.log
+
+# Virtual environments
+venv/
+*.egg-info/
+*.egg
+*.log
+
+env/
+.venv/
+ENV/
+
+# ============================
+# Node / React (frontend)
+# ============================
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+frontend/.vite/
+frontend/.cache/
+*.lock
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ============================
+# OS generated files
+# ============================
+.DS_Store
+Thumbs.db
+
+# ============================
+# IDE / Editor settings
+# ============================
+.vscode/
+.idea/
+
+# Node / React
+node_modules/
+build/
+.env
+npm-debug.log
+yarn-error.log
+
+# ============================
+# Environment & secrets
+# ============================
+.env
+npm-debug.log
+yarn-error.log
+*.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+pinecone_config.json
+redis.conf
+
+# ============================
+# Temp / uploads / reports
+# ============================
+temp_*
+*.xlsx
+*.xls
+*.csv
+*.pdf
+*.tmp
+*.cache
+
+backend/uploads/
+backend/reports/
+backend/transcripts/
+
+# ============================
+# Jupyter
+# ============================
+.ipynb_checkpoints/
+
+# ============================
+# Uvicorn / FastAPI reload
+# ============================
+*.pid
+
+# ============================
+# Redis / Pinecone data
+# ============================
+*.rdb
+dump.rdb
+appendonly.aof
