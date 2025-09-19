@@ -1,31 +1,41 @@
 # Core dependencies
 google-generativeai
 python-dotenv
+requests
 httpx
-requests==2.32.2
 
 # WhisperX + dependencies
 whisperx
-torch==2.8.0
-torchaudio==2.8.0
+torch
+torchaudio
 
 # Twelve Labs SDK
 twelvelabs
 
 # Utilities
 numpy==1.26.4
-scikit-learn==1.5.0
-pandas==2.2.2
-matplotlib==3.9.0
 
 # FastAPI & server
 fastapi==0.111.0
 uvicorn[standard]==0.30.1
-python-multipart==0.0.9
 
 # For video / data handling
 moviepy==1.0.3
 pydub==0.25.1
 
-# NLP / ML
+# If using NLP / ML
 transformers==4.42.0
+torch==2.3.0
+scikit-learn==1.5.0
+
+# For HTTP requests
+requests==2.32.2
+
+# For JSON / data export
+pandas==2.1.1
+
+# For visualization if needed
+matplotlib==3.9.0
+
+# CORS middleware
+python-multipart==0.0.9
