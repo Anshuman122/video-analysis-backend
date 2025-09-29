@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 import os
 import json
 import asyncio
-from Backend.compare import main as process_video
+from compare import main as process_video
 
 app = FastAPI()
 
