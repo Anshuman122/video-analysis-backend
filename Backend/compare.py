@@ -4,8 +4,8 @@ import asyncio
 import sys
 from datetime import datetime
 
-from Backend.transcription import transcribe_video, convert_drive_link 
-from Backend.tweleve_labs_visualization import analyze_video
+from transcription import transcribe_video, convert_drive_link 
+from tweleve_labs_visualization import analyze_video
 import google.generativeai as genai
 import os
 import json
