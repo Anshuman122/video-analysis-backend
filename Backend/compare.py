@@ -3,12 +3,14 @@ import json
 import asyncio
 import sys
 from datetime import datetime
-from Backend.transcription import transcribe_video, convert_drive_link
+
+from Backend.transcription import transcribe_video, convert_drive_link 
 from Backend.tweleve_labs_visualization import analyze_video
 import google.generativeai as genai
 import os
 import json
 from dotenv import load_dotenv
+
 
 load_dotenv()
 API_KEY = os.getenv("GEMINI_API_KEY")
@@ -17,41 +19,40 @@ if API_KEY:
 else:
     print("WARNING: GEMINI_API_KEY not set. LLM features disabled.")
 
+print(f"✅ Using google-generativeai version: {genai.__version__}")
+
 model = None
 if API_KEY:
     try:
-        model = genai.GenerativeModel("gemini-1.5-flash")
+        model = genai.GenerativeModel("gemini-2.5-flash")
     except Exception as e:
         print("WARNING: Could not initialize Gemini model:", e)
-# ----------------------
-# STEP 1: Run subtasks
-# ----------------------
+
 async def run_transcription(video_source: str):
-    """Run WhisperX transcription and return transcript segments"""
+    """
+    Run transcription by calling the ML Worker API.
+    Returns transcript segments.
+    """
     transcript_file = os.path.join("reports", "transcript.json")
-    path = transcribe_video(video_source, transcript_file)
+    
+    
+    path = await transcribe_video(video_source, transcript_file) 
+    
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
 
 
 async def run_visual_analysis(video_source: str):
     """Run Twelve Labs visual analysis and return visual segments"""
-    result = analyze_video(video_source)  # must return dict with "scenes"
+    result = analyze_video(video_source)  
     visual_file = os.path.join("reports", "visual.json")
     with open(visual_file, "w", encoding="utf-8") as f:
         json.dump(result, f, indent=2, ensure_ascii=False)
     return result.get("scenes", [])
 
 
-# ----------------------
-# STEP 2: LLM Integration (Google Gemini)
-# ----------------------
-
 def run_llm(prompt: str) -> dict:
-    """
-    Call Google Gemini LLM to compare transcription and visuals.
-    Returns JSON with mismatches and spelling errors.
-    """
+
     if model is None:
         return {"raw_output": "LLM not configured; cannot process."}
 
@@ -88,24 +89,27 @@ Return output in strict JSON with fields:
   ]
 }}
 """
-
-
-# ----------------------
-# STEP 3: Main Pipeline
-# ----------------------
+    
 async def main(video_source: str):
     os.makedirs("reports", exist_ok=True)
     job_id = datetime.now().strftime("%Y%m%d_%H%M%S")
+    
+    print(f"\n🚀 [BACKEND] Starting new analysis pipeline for job {job_id}.")
+    print(f"  [BACKEND] Input video source: {video_source}")
 
     if video_source.startswith("http") and "drive.google.com" in video_source:
         video_source = convert_drive_link(video_source)
-        print(f"🔗 Converted Google Drive link to direct download: {video_source}")
+        print(f"  [BACKEND] 🔗 Converted Google Drive link to direct download.")
 
+    print(f"  [BACKEND] ⏳ Starting transcription and visual analysis tasks in parallel...")
     transcript_task = asyncio.create_task(run_transcription(video_source))
     visual_task = asyncio.create_task(run_visual_analysis(video_source))
 
     transcript = await transcript_task
+    print(f"  [BACKEND] ✅ Transcription task complete.")
+    
     visual = await visual_task
+    print(f"  [BACKEND] ✅ Visual analysis task complete.")
 
     combined = {
         "job_id": job_id,
@@ -117,23 +121,28 @@ async def main(video_source: str):
     combined_path = os.path.join("reports", "combined_output.json")
     with open(combined_path, "w", encoding="utf-8") as f:
         json.dump(combined, f, indent=2, ensure_ascii=False)
-    print(f"✅ Combined output saved -> {combined_path}")
+    print(f"  [BACKEND] 📄 Combined intermediate output saved.")
 
-    # Run Gemini LLM analysis
+    print(f"  [BACKEND] 🧠 Calling Gemini LLM for comparison...")
     prompt = build_prompt(transcript, visual)
     llm_result = run_llm(prompt)
+    print(f"  [BACKEND] ✅ Gemini LLM analysis complete.")
 
     final_report = {**combined, "comparison": llm_result}
-    final_path = os.path.join("reports", "final_report.json")
+    
+
+    final_path = os.path.join("reports", f"{job_id}_final_report.json")
+
     with open(final_path, "w", encoding="utf-8") as f:
         json.dump(final_report, f, indent=2, ensure_ascii=False)
 
-    print(f"✅ Final report saved -> {final_path}")
+    print(f"  [BACKEND] ✨ Final report saved -> {final_path}")
+    print(f"  [BACKEND] Pipeline finished successfully for job {job_id}.")
+
+    
+    return final_path
 
 
-# ----------------------
-# CLI Entry Point
-# ----------------------
 if __name__ == "__main__":
     if len(sys.argv) < 2:
         print("❌ Usage: python compare.py <video_file_or_url>")

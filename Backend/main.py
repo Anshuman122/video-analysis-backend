@@ -7,10 +7,9 @@ from Backend.compare import main as process_video
 
 app = FastAPI()
 
-# Allow frontend (React) to access backend
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # later replace with http://localhost:5173 or http://localhost:3000
+    allow_origins=["*"], 
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -34,35 +33,51 @@ def save_history(history):
 
 @app.post("/analyze")
 async def analyze(video_url: str = Form(...)):
-    """Trigger video analysis pipeline"""
-    await process_video(video_url)
 
-    final_report_path = os.path.join("reports", "final_report.json")
-    if not os.path.exists(final_report_path):
+    print("\n[MAIN] Received request on /analyze endpoint.")
+    print("[MAIN] ⏳ Calling video processing pipeline...")
+    
+
+    final_report_path = await process_video(video_url)
+    
+
+    print("[MAIN] ✅ Video processing pipeline finished.")
+
+    if not final_report_path or not os.path.exists(final_report_path):
+        print("[MAIN] ❌ Error: Final report file was not found.")
         return {"error": "Report generation failed"}
 
+    print(f"[MAIN] 📄 Loading final report from {final_report_path}.")
     with open(final_report_path, "r", encoding="utf-8") as f:
         report = json.load(f)
 
-    # Save history
+    print("[MAIN] 💾 Saving new report to history file...")
     history = load_history()
     history.append(report)
     save_history(history)
+    print("[MAIN] ✅ Report saved to history.")
 
+    print("[MAIN] ✨ Returning final report to frontend.")
     return report
 
 
 @app.get("/history")
 async def get_history():
-    """Return all previous reports"""
+
+    print("\n[MAIN] Received request on /history endpoint. Loading history...")
     return load_history()
 
 
 @app.get("/download/{job_id}")
 async def download_report(job_id: str):
-    """Download specific report"""
+
+    print(f"\n[MAIN] Received request on /download for job_id: {job_id}")
     path = os.path.join("reports", f"{job_id}_final_report.json")
     if not os.path.exists(path):
+    
+        print(f"[MAIN] ❌ Report for job_id {job_id} not found.")
         return {"error": "Report not found"}
+    
+    print(f"[MAIN] ✅ Report found. Sending file content.")
     with open(path, "r", encoding="utf-8") as f:
         return json.load(f)
