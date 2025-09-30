@@ -52,3 +52,5 @@ function ReportViewer({ report }) {
     </div>
   );
 }
+
+export default ReportViewer;
