@@ -1,11 +1,19 @@
 import React, { useState } from "react";
+import ReportViewer from "./ReportViewer";
 
-function AnalysisPanel({ selectedJob }) {
+
+function AnalysisPanel({ selectedJob, latestReport, handleAnalyze }) {
   const [videoLink, setVideoLink] = useState("");
 
-  const handleAnalyze = () => {
+  
+  const onAnalyzeClick = () => {
+    if (!videoLink) {
+      alert("Please enter a video link.");
+      return;
+    }
     console.log("Analyze video:", videoLink);
-    // Call backend API with axios here
+    
+    handleAnalyze(videoLink);
   };
 
   return (
@@ -14,25 +22,18 @@ function AnalysisPanel({ selectedJob }) {
       <div className="input-section">
         <input
           type="text"
-          placeholder="Enter Google Drive Video Link..."
+          placeholder="Enter Google Drive or Direct Video Link..."
           value={videoLink}
           onChange={(e) => setVideoLink(e.target.value)}
         />
-        <button onClick={handleAnalyze}>Analyze</button>
+        {/* 3. The button calls our local onAnalyzeClick function */}
+        <button onClick={onAnalyzeClick}>Analyze</button>
       </div>
 
       <div className="report-section">
-        <h2>Latest Report</h2>
-        {selectedJob ? (
-          <div>
-            <p><strong>Job ID:</strong> {selectedJob.job_id}</p>
-            <a href={selectedJob.link} download>
-              Download JSON
-            </a>
-          </div>
-        ) : (
-          <p>No report selected yet.</p>
-        )}
+        <h2>Report Details</h2>
+        {/* 4. This now correctly displays either the latest report or a selected one */}
+        <ReportViewer report={latestReport || selectedJob} />
       </div>
     </div>
   );
