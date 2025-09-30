@@ -6,7 +6,7 @@ from twelvelabs import TwelveLabs
 from twelvelabs.indexes import IndexesCreateRequestModelsItem
 from twelvelabs.tasks import TasksRetrieveResponse
 
-from Backend.transcription import convert_drive_link
+from transcription import convert_drive_link
 
 def analyze_video(video_source: str, api_key: str = None) -> dict:
     api_key = api_key or os.getenv("twelve_labs_apis")
