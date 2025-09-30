@@ -44,7 +44,7 @@ async def run_transcription(video_source: str):
 
 async def run_visual_analysis(video_source: str):
     """Run Twelve Labs visual analysis and return visual segments"""
-    result = analyze_video(video_source)  
+    result = await asyncio.to_thread(analyze_video, video_source)  
     visual_file = os.path.join("reports", "visual.json")
     with open(visual_file, "w", encoding="utf-8") as f:
         json.dump(result, f, indent=2, ensure_ascii=False)
