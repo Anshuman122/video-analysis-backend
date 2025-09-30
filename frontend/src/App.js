@@ -3,7 +3,7 @@ import axios from "axios";
 import Sidebar from "./components/Sidebar";
 import AnalysisPanel from "./components/AnalysisPanel";
 import "./App.css";
-const API_URL = import.meta.env.VITE_API_URL;
+const API_URL = import.meta.env.REACT_APP_API_URL;
 
 function App() {
   const [history, setHistory] = useState([]);
