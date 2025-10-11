@@ -1,5 +1,5 @@
 {
-  "job_id": 3,
+  "job_id": 8,
   "input": "https://drive.google.com/uc?export=download&id=1ZGHviUcwbTapVbMLx3j6uBEoPekBHDYx",
   "transcription": [
     {
@@ -803,5 +803,74 @@
       "text": "See you again."
     }
   ],
-  "visual_analysis": []
+  "visual_analysis": [],
+  "comparison": {
+    "mismatches": [
+      {
+        "time": "0:00:30",
+        "detail": "The speaker mentions that 'Trump posted this about India' and asks the viewer to 'Read it carefully'. A mismatch would occur if no visual of a Trump post (or its content) is displayed on screen."
+      },
+      {
+        "time": "0:01:14",
+        "detail": "The speaker instructs to 'Take a look at this, sinister dreams of breaking India into pieces'. A mismatch would occur if no visual text or graphic illustrating this phrase is shown."
+      },
+      {
+        "time": "0:01:49",
+        "detail": "The speaker says 'Take a look at this massive monument,' followed by identifying it as 'Von Rushmore' (likely Mount Rushmore). A mismatch would occur if no visual of Mount Rushmore is displayed."
+      },
+      {
+        "time": "0:02:00",
+        "detail": "The speaker states 'Even Trump recently posted this,' implying a visual of another Trump post, likely related to the monument. A mismatch would occur if no such post is displayed."
+      },
+      {
+        "time": "0:02:23",
+        "detail": "The speaker says 'Well, the monument says in the area known as the Black Hills,' implying on-screen text on or about the monument. A mismatch would occur if no such text indicating the Black Hills is visible."
+      },
+      {
+        "time": "0:03:19",
+        "detail": "The speaker states 'As described here, two slave owners and two who are hostile toward native Americans,' implying a visual description of the presidents on Mount Rushmore. A mismatch would occur if no such description is shown."
+      },
+      {
+        "time": "0:03:33",
+        "detail": "The speaker states that the monument's 'sculptor has been described as a racist man with ties to the K-K,' implying a visual detailing this information. A mismatch would occur if no such detail is displayed."
+      },
+      {
+        "time": "0:03:43",
+        "detail": "The speaker refers to 'the official page of this government website' where certain information is 'not even mentioned'. A mismatch would occur if this government website or the highlighted absence of information is not visually presented."
+      },
+      {
+        "time": "0:05:30",
+        "detail": "The speaker presents a statistic: 'the European Union, the largest buyer, purchasing 51% of Russia's LNG exports'. A mismatch would occur if no visual graphic or text displaying this statistic is shown."
+      },
+      {
+        "time": "0:05:36",
+        "detail": "The speaker presents another statistic: 'the European Union, the largest buyer, purchasing 36% of Russia's pipeline gas'. A mismatch would occur if no visual graphic or text displaying this statistic is shown."
+      },
+      {
+        "time": "0:05:47",
+        "detail": "The speaker states 'This is from an official US government website, Trade & Golds with Russia'. A mismatch would occur if this specific website and section are not displayed visually."
+      },
+      {
+        "time": "0:05:53",
+        "detail": "The speaker lists import data for 'Year 2025. imports. Year 2024. imports. ... Year 2023. Year 2022.' A mismatch would occur if no visual table, chart, or list of this import data is shown."
+      },
+      {
+        "time": "0:06:26",
+        "detail": "The speaker mentions 'Even Reuters has reported this'. A mismatch would occur if no visual of a Reuters report or article supporting the claim is displayed."
+      },
+      {
+        "time": "0:07:22",
+        "detail": "The speaker quotes Dr. Jishankar. A mismatch would occur if no visual of Dr. Jishankar or the quoted text is shown on screen."
+      },
+      {
+        "time": "0:08:12",
+        "detail": "The speaker instructs to 'Read this recent article on Uron News'. A mismatch would occur if no visual of this article (or its headline/source) is displayed."
+      },
+      {
+        "time": "0:08:25",
+        "detail": "The speaker instructs to 'Read this on paper, India takes all the boxes' and then lists them. A mismatch would occur if no visual representation of these 'boxes' or criteria is shown."
+      }
+    ],
+    "spelling_errors": []
+  }
 }

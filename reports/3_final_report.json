@@ -803,5 +803,9 @@
       "text": "See you again."
     }
   ],
-  "visual_analysis": []
+  "visual_analysis": [],
+  "comparison": {
+    "mismatches": [],
+    "spelling_errors": []
+  }
 }

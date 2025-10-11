@@ -5,7 +5,9 @@ requests
 httpx
 
 # WhisperX + dependencies
-whisperx
+whisperx==3.3.1
+faster-whisper==1.1.0
+imageio==2.36.0
 torch
 torchaudio
 
@@ -39,3 +41,7 @@ matplotlib==3.9.0
 
 # CORS middleware
 python-multipart==0.0.9
+
+
+SQLAlchemy
+psycopg2-binary

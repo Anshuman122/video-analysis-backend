@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import ReportViewer from "./ReportViewer";
 
 
-function AnalysisPanel({ selectedJob, latestReport, handleAnalyze }) {
+
+function AnalysisPanel({ selectedJob, latestReport, handleAnalyze , isLoading}) {
   const [videoLink, setVideoLink] = useState("");
 
   
@@ -27,7 +28,10 @@ function AnalysisPanel({ selectedJob, latestReport, handleAnalyze }) {
           onChange={(e) => setVideoLink(e.target.value)}
         />
         {/* 3. The button calls our local onAnalyzeClick function */}
-        <button onClick={onAnalyzeClick}>Analyze</button>
+        <button onClick={onAnalyzeClick} disabled={isLoading}>
+               {isLoading ? "Analyzing..." : "Analyze"}
+               {isLoading && <p className="loading-message">Processing video, this may take several minutes...</p>}
+          </button>
       </div>
 
       <div className="report-section">

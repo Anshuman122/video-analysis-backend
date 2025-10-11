@@ -1,0 +1,49 @@
+{
+  "job_id": 7,
+  "input": "https://drive.google.com/uc?export=download&id=1ZGHviUcwbTapVbMLx3j6uBEoPekBHDYx",
+  "transcription": {
+    "error": "An error occurred during transcription: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))"
+  },
+  "visual_analysis": [
+    {
+      "start_time": 0,
+      "end_time": 25,
+      "visual": "The video begins with a black screen featuring white geometric patterns that shift slightly. It transitions to a woman wearing glasses and a patterned dress, speaking directly to the camera against a backdrop resembling Mount Rushmore's faces superimposed over an American flag. The scene then shifts to the woman standing outdoors near a wooden fence, addressing the viewer with greenery and houses visible beyond the fence. Infographics and screenshots of news articles discussing US imports from Russia and EU dependence on Russian gas appear, with text at the bottom of the screen changing frequently."
+    },
+    {
+      "start_time": 25,
+      "end_time": 50,
+      "visual": "The woman continues her address outdoors, with tweets criticizing India's relationship with China and Russia flashing across the screen. The video then shows three soldiers in dark uniforms and red berets, with part of an airplane visible behind them. One soldier turns his head towards another off-screen individual who speaks to him, amidst other individuals moving around in the background. The focus shifts back to the plane, now displaying its name 'India' in English and Hindi script. Two men shake hands beside the aircraft stairs, followed by three people walking away together down the tarmac."
+    },
+    {
+      "start_time": 50,
+      "end_time": 75,
+      "visual": "The woman resumes her commentary outdoors, with tweets critical of Indian sovereignty appearing consecutively. Dr. Jaishankar is depicted delivering remarks, seemingly responding to criticisms made earlier. Text-based content highlighting points such as the USA being a champion of Western genocide and criminal democracy is displayed. Illustrations depicting Donald Trump next to graphs indicating economic decline and a figure holding agricultural tools are shown. The video then transitions to Mount Rushmore under sunset lighting conditions, zooming out gradually to reveal more of the surrounding landscape."
+    },
+    {
+      "start_time": 75,
+      "end_time": 100,
+      "visual": "The woman continues her commentary outdoors, with text at the bottom of the screen changing frequently. The video then shows news articles discussing stolen land from Native Americans and calls for its return. Two women stand before Mount Rushmore National Memorial, wearing traditional clothing, with one holding a staff-like object. Text appears over images questioning who the four U.S. presidents carved into Mount Rushmore were, followed by information about two slave owners among them. An article highlights Theodore Roosevelt's hunting activities as explained by Mr. Shashi Tharoor."
+    },
+    {
+      "start_time": 100,
+      "end_time": 125,
+      "visual": "Information is presented regarding Gutzon Borglum, the sculptor of Mount Rushmore, including his ties to white supremacy. Details about Gutzon Borglum's early years and family history are shown. A CBS Evening News segment discusses Mount Rushmore being called 'Shrine of Democracy.' The woman reappears at the fence, describing Mount Rushmore as an active crime scene due to stolen indigenous lands. Donald Trump speaks at a podium labeled 'The White House,' addressing American liberals. The view returns to Mount Rushmore under cloudy skies, while cars drive past it."
+    },
+    {
+      "start_time": 125,
+      "end_time": 150,
+      "visual": "The woman continues her commentary against colonialism and slavery glorified by Mount Rushmore. More views of Mount Rushmore appear, accompanied by ongoing discussion about its controversial nature. The woman concludes that America seems like a moral degeneration peak. Fireworks explode above Mount Rushmore, symbolizing celebration despite controversy. People walk through the entrance gate towards Mount Rushmore, highlighting tourism aspects. Articles discuss Trump not being welcomed at Mount Rushmore and legal battles related to stolen land."
+    },
+    {
+      "start_time": 150,
+      "end_time": 175,
+      "visual": "Images show court buildings and statues, emphasizing justice issues. Calls for returning stolen land and building a Holocaust museum instead are displayed. Suggestions include turning Mount Rushmore into something akin to the Holocaust Museum. Donation requests and financial support options are highlighted. The video then shifts to a screenshot of a webpage titled 'Trade in Goods with Russia' from the U.S. Census Bureau, showing tables displaying export, import, and balance data between January 2023 to June 2025. The woman reappears outdoors, continuing her discourse amidst the consistent rural landscape."
+    },
+    {
+      "start_time": 175,
+      "end_time": 200,
+      "visual": "The woman stands behind a wooden fence, speaking to the camera with her arms crossed. The background includes greenery and a house, suggesting a residential setting. The scene transitions to a news article headline that reads, 'US should return stolen land to Indian tribes, says United Nations.' This headline is accompanied by an image of a person sitting outside a building, possibly indicating a Native American individual. The text below the headline discusses the UN's call for action against racial discrimination felt by Native Americans."
+    }
+  ]
+}
