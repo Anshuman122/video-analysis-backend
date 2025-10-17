@@ -724,14 +724,5 @@
       "end_time": 450,
       "visual": "The scene shows Donald Trump speaking at the podium. The setting remains consistent, featuring the US and UK flags behind him. The camera angle is slightly wider, revealing more of the room and some of the audience seated in front of the podiums. At 444s, the man on the right side of the screen picks up a black folder or document. The scene then transitions to a black screen with the word 'mint' in orange letters, along with social media icons and a subscription button."
     }
-  ],
-  "comparison": {
-    "mismatches": [
-      {
-        "time": "0:03:20 - 0:03:45",
-        "detail": "The visual description states 'The man on the right gestures while speaking,' referring to Keir Starmer. However, the transcription shows a reporter (Beth Rigby) asking questions during this time (0:03:11 - 0:04:05), and Keir Starmer is not speaking."
-      }
-    ],
-    "spelling_errors": []
-  }
+  ]
 }
